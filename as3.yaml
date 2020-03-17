@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webtable
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-table
+  template:
+    metadata:
+      labels: 
+        app: web-table
+        environment: dev
+    spec:
+       containers:
+        - name:   login
+          image: mehrjay86/assign3
+          ports:
+            - containerPort: 8080
